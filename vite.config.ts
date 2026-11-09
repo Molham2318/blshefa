@@ -14,6 +14,7 @@ const routes = extractRoutes({
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/blshefa/",
   server: {
     host: "::",
     port: 8080,
