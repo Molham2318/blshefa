@@ -12,10 +12,14 @@ import { CanonicalManager } from "./components/canonical-manager";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ErrorBoundary 
+  <ErrorBoundary
     FallbackComponent={ErrorFallback}
     onError={(error, errorInfo) => {
-      console.error(`Error Boundary caught an error(pathname:${location.pathname + location.search}):`, error, errorInfo);
+      console.error(
+        `Error Boundary caught an error(pathname:${location.pathname + location.search}):`,
+        error,
+        errorInfo
+      );
       setTimeout(() => {
         throw error;
       }, 0);
@@ -25,7 +29,7 @@ const App = () => (
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <Toaster />
-          <BrowserRouter>
+          <BrowserRouter basename="/blshefa">
             <Routes>
               <Route element={<CanonicalManager />}>
                 <Route path="/" element={<HomePage />} />
